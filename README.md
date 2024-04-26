@@ -3,6 +3,7 @@ Subire ejercicios practicando el lenguaje python
 
 # Ejercicios de Python
 
+Estos primeros ejercicios son de una pagina con ejercicios en linea: https://pythondiario.com/2013/05/ejercicios-en-python-parte-1.html
 En la carpeta `Ejercicios` se trabajó en los siguientes problemas:
 
 1. **Definir una función max():**  
@@ -38,6 +39,38 @@ En la carpeta `Ejercicios` se trabajó en los siguientes problemas:
      
      ![image](https://github.com/AngheloZambrana/Practicas-Python/assets/101211793/e14e4a05-2038-4698-b8d2-1bb28c966f2f)
 
-  
+6. **Definir una función inversa():**  
+   - Descripción: Esta función calcula la inversión de una cadena. Por ejemplo, la cadena "estoy probando" debería devolver la cadena "odnaborp yotse".
+
+     ![image](https://github.com/AngheloZambrana/Practicas-Python/assets/101211793/21756d0c-768f-4e23-9190-429c9fd8d610)
+     ![image](https://github.com/AngheloZambrana/Practicas-Python/assets/101211793/f46ad643-f916-4b1e-8958-4e26ec7aae01)
+
+7. **Definir una función es_palindromo():**  
+   - Descripción: Esta función reconoce palíndromos, es decir, palabras que tienen el mismo aspecto escritas invertidas. Por ejemplo, es_palindromo("radar") debería devolver True.
+
+     ![image](https://github.com/AngheloZambrana/Practicas-Python/assets/101211793/8c632090-fe9c-4ba9-b4c3-f16230f2f05d)
+     ![image](https://github.com/AngheloZambrana/Practicas-Python/assets/101211793/51d6c9c1-b0f3-4c85-b845-104d4cab6110)
+
+8. **Definir una función superposicion():**  
+   - Descripción: Esta función toma dos listas y devuelve True si tienen al menos 1 miembro en común, o False de lo contrario. La función está escrita usando el bucle for anidado.
+
+     ![image](https://github.com/AngheloZambrana/Practicas-Python/assets/101211793/0ee7714e-e510-4280-8d91-2067e080a233)
+     ![image](https://github.com/AngheloZambrana/Practicas-Python/assets/101211793/9b3abffd-95f1-4219-a02d-99ece9046ec9)
+
+
+9. **Definir una función generar_n_caracteres():**  
+   - Descripción: Esta función toma un entero n y un caracter, y devuelve el caracter multiplicado por n. Por ejemplo, generar_n_caracteres(5, "x") debería devolver "xxxxx".
+
+     ![image](https://github.com/AngheloZambrana/Practicas-Python/assets/101211793/1e6cf454-d0bd-41eb-9e8a-0382add12313)
+
+10. **Definir un procedimiento histograma():**  
+    - Descripción: Esta función toma una lista de números enteros e imprime un histograma en la pantalla. Por ejemplo, si se le pasa [4, 9, 7], debería imprimir:
+    ```
+    ****
+    *********
+    *******
+    ```
+    
+   ![image](https://github.com/AngheloZambrana/Practicas-Python/assets/101211793/0c05b9fc-c518-410c-87e4-809ea4dc7ee7)
 
   

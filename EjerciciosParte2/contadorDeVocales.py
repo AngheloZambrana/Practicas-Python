@@ -11,5 +11,5 @@ def contadorVocales():
             contador[letra] += 1
 
     for vocal, cantidad in contador.items():
-        print(f"La palabra tiene {cantidad} letra(s) '{vocal}'")
+        print(f"La palabra tiene {cantidad} letra(s) '{vocal}'.")
 contadorVocales()

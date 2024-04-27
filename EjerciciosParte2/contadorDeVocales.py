@@ -3,14 +3,13 @@
 #Se puede hacer que el usuario sea quien elija la palabra.
 
 def contadorVocales():
-    palbra = input("Ingrese la palabra que usted queira: ")
+    palabra = input("Ingrese la palabra que usted quiera: ").lower()
     vocales = ["a", "e", "i", "o", "u"]
-    conjunto_palabra = set(palbra.lower())
     contador = {vocal: 0 for vocal in vocales}
-    for letra in conjunto_palabra:
+    for letra in palabra:
         if letra in vocales:
             contador[letra] += 1
 
     for vocal, cantidad in contador.items():
-        print("La palabra", cantidad, "letras(s)", vocal)
+        print(f"La palabra tiene {cantidad} letra(s) '{vocal}'.")
 contadorVocales()

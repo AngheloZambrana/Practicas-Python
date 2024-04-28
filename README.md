@@ -1,5 +1,7 @@
 # Practicas-Python
 Subire ejercicios practicando el lenguaje python
+Ire subiendo paginas y enlaces de donde voy sacando los links:
+https://pythondiario.com/ejercicios-de-programacion-python
 
 # Índice
 

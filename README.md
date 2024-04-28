@@ -54,6 +54,13 @@ https://pythondiario.com/ejercicios-de-programacion-python
 1. [Explicacion del problema Descuentos](#explicacion-del-problema-descuentos)
 2. [Clase descuento por sorteo](#clase-descuento-por-sorteo)
 
+
+## Generacion De Factura por Galeria de Productos
+1. [Explicacion del problema Factura](#explicacion-del-problema-factura)
+2. [Clase productos](#clase-productos)
+3. [Clase factura](#clase-factura)
+
+
 # Ejercicios Parte 1
 
 Estos primeros ejercicios son de una pagina con ejercicios en linea: https://pythondiario.com/2013/05/ejercicios-en-python-parte-1.html
@@ -466,3 +473,76 @@ La funcionalidad del programa se puede resumir de la siguiente manera:
 
 7. Finalmente, se llama a la función `descuentosColor()` para ejecutar el programa.
 
+
+
+# Generacion De Factura por Galeria de Productos
+
+## Explicacion del problema Factura
+
+De la galería de productos, el usuario introducirá el código y el número de unidades del producto que desea comprar. El programa determinará el total a pagar, como una factura. Una variante a este ejercicio que lo haría un poco más complejo sería dar la posibilidad de seguir ingresando diferentes códigos de productos con sus respectivas cantidades, y cuando el usuario desee terminar el cálculo de la factura completa con todas sus compras.
+
+![image](https://github.com/AngheloZambrana/Practicas-Python/assets/101211793/cbe93fe4-091f-4c15-a4df-500dbe81d8e3)
+
+
+## Clase productos
+
+En esta clase trabajamos proporciona dos funciones y la descripción de su funcionalidad es la siguiente:
+
+### Función `productosGaleria()`
+
+Esta función devuelve dos listas:
+- Una lista de productos que contiene nombres de productos como "Camisa", "Cinturón", etc.
+- Una lista de códigos que contiene números enteros del 1 al número total de productos en la lista.
+
+### Función `asignarPrecio(producto, precios)`
+
+Esta función toma dos parámetros:
+- El nombre de un producto.
+- Una lista de precios.
+
+Basándose en el nombre del producto, esta función devuelve el precio correspondiente desde la lista de precios proporcionada. Las reglas son las siguientes:
+- Si el producto es "Calcetines", devuelve el primer precio en la lista de precios.
+- Si el producto es "Gorras", "Cinturón" o "Corbata", devuelve el segundo precio en la lista de precios.
+- Si el producto es "Faldas", devuelve el tercer precio en la lista de precios.
+- Si el producto es "Camisa" o "Chaqueta", devuelve el cuarto precio en la lista de precios.
+- Si el producto es "Pantalon", devuelve el quinto precio en la lista de precios.
+- Si el producto es "Sueter", devuelve el sexto precio en la lista de precios.
+- En caso contrario, devuelve el precio en la posición 7 de la lista de precios.
+
+## Clase factura
+
+Dentro del archivo se describe detalladamente el funcionamiento de la función `generarFactura()` que se encarga de todo el proceso de generación de la factura. A continuación, se detallan los pasos que realiza:
+
+1. **Inicialización de Variables**: 
+    - Obtiene la lista de productos y códigos utilizando la función `productosGaleria()`.
+    - Define la lista de precios de los productos.
+
+2. **Inicialización del Carrito**: 
+    - Crea un diccionario vacío `carrito` para almacenar los productos seleccionados por el usuario.
+
+3. **Bucle de Compras**: 
+    - Entra en un bucle infinito que permite al usuario agregar productos al carrito.
+    - El usuario ingresa el código del producto y la cantidad deseada.
+
+4. **Validación del Código**: 
+    - Verifica si el código ingresado por el usuario corresponde a un producto válido.
+    - Si no es válido, muestra un mensaje de error y solicita un nuevo código.
+
+5. **Cálculo del Subtotal**: 
+    - Utiliza la función `asignarPrecio()` para obtener el precio del producto seleccionado.
+    - Calcula el subtotal multiplicando el precio por la cantidad.
+
+6. **Actualización del Carrito**: 
+    - Si el producto ya está en el carrito, actualiza la cantidad y el subtotal.
+    - Si no está en el carrito, lo agrega con la cantidad y el subtotal.
+
+7. **Finalización de la Compra**: 
+    - Si el usuario ingresa un código de producto igual a 0, el bucle se interrumpe y se finaliza la compra.
+
+8. **Cálculo del Total**: 
+    - Calcula el total sumando los subtotales de todos los productos en el carrito.
+
+9. **Impresión de la Factura**: 
+    - Imprime la factura detallando los productos, las cantidades, los precios unitarios, los subtotales y el total a pagar.
+
+Esto asegura que la generación de la factura se realice de manera eficiente y precisa, proporcionando al usuario toda la información necesaria sobre sus compras.

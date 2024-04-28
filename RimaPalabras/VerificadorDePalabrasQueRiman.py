@@ -27,6 +27,4 @@ def rimas():
             print("Solo rima 1 letra de tus dos palabras")
     else:
         print("Sus palabras no riman")
-
-
 rimas()

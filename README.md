@@ -49,6 +49,11 @@ https://pythondiario.com/ejercicios-de-programacion-python
 2. [Clase calculdora de crecimiento con tasa de interes](#clase-calculadora-de-crecimiento-con-tasa-de-interes)
 3. [Ejemplo de uso](#ejemplo-de-uso)
 
+
+## Calculo de crecimiento de una inversion con tasa de interes
+1. [Explicacion del problema Descuentos](#explicacion-del-problema-descuentos)
+2. [Clase descuento por sorteo](#clase-descuento-por-sorteo)
+
 # Ejercicios Parte 1
 
 Estos primeros ejercicios son de una pagina con ejercicios en linea: https://pythondiario.com/2013/05/ejercicios-en-python-parte-1.html
@@ -427,3 +432,37 @@ Donde:
 ## Ejemplo de uso
 Supongamos que tienes una cantidad de $10,000 dólares con una tasa de interés del 4.5% anual. Quieres saber cuánto será ese capital después de 20 años. El programa te dará la respuesta.
 Después de 20 años, su capital se habrá convertido en 24117.14 dólares.
+
+
+# Calculo de crecimiento de una inversion con tasa de interes
+
+## Explicacion del problema Descuentos
+
+Este programa simula un sistema de descuentos por sorteo en una tienda. Primero, solicita al usuario que ingrese la cantidad total de compras realizadas. Si la cantidad es inferior a $100.00, el programa informa al usuario que no aplica a la promoción. Si la cantidad es igual o superior a $100.00, el programa genera aleatoriamente un número del 1 al 5, cada uno correspondiendo a un color de bola diferente. Dependiendo del color de la bola aleatoria, se aplicará un descuento específico sobre el total de la compra del usuario.
+
+![image](https://github.com/AngheloZambrana/Practicas-Python/assets/101211793/0fb272af-629e-45b4-8064-3b7cd204f71c)
+
+## Clase descuento por sorteo
+
+La funcionalidad del programa se puede resumir de la siguiente manera:
+
+1. La función `descuentosColor()` solicita al usuario que ingrese la cantidad total de la compra mediante la función `input()`. Este valor se almacena en la variable `cantidadInicial` como un número de punto flotante.
+
+2. Se utiliza un bloque `try-except` para manejar cualquier excepción que pueda ocurrir si el usuario ingresa un valor no numérico. En caso de que ocurra una excepción, se imprime un mensaje de error y se termina la ejecución de la función.
+
+3. Si la cantidad total de la compra ingresada por el usuario es igual o mayor a $100.00, el programa continúa ejecutándose. De lo contrario, se imprime un mensaje indicando que el cliente no aplica a la promoción y se finaliza la ejecución de la función.
+
+4. Si la cantidad total de la compra es igual o mayor a $100.00, el programa simula un sorteo generando aleatoriamente un número del 1 al 5 (inclusive) utilizando `random.randint(1,5)` y lo guarda en la variable `color`. Este número representa el color de una bola extraída.
+
+5. Se utilizan declaraciones `if-elif-else` para determinar qué acción tomar según el color de la bola extraída:
+    - Si el color es 1, se imprime un mensaje indicando que no hay descuento.
+    - Si el color es 2, se aplica un descuento del 10%.
+    - Si el color es 3, se aplica un descuento del 20%.
+    - Si el color es 4, se aplica un descuento del 25%.
+    - Si el color es 5, se aplica un descuento del 50%.
+    - En cada caso, se calcula el nuevo total a pagar (`resultado`) después de aplicar el descuento y se muestra al usuario.
+
+6. Si la cantidad total de la compra es menor a $100.00, se imprime un mensaje indicando que el cliente no aplica a la promoción.
+
+7. Finalmente, se llama a la función `descuentosColor()` para ejecutar el programa.
+

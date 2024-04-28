@@ -21,6 +21,10 @@ def rimas():
         if lista_palabra1[comparador2] == lista_palabra2[Scomparador2]:
             if lista_palabra1[comparador3] == lista_palabra2[Scomparador3]:
                 print("Ambas palabras riman")
+            else:
+                print("Solo riman 2 letra de tus dos palabras")
+        else:
+            print("Solo rima 1 letra de tus dos palabras")
     else:
         print("Sus palabras no riman")
 

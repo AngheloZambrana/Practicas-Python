@@ -39,6 +39,11 @@ https://pythondiario.com/ejercicios-de-programacion-python
 1. [Explicacion juego](#explicacion-juego)
 2. [Clase juego Master mind](#clase-juego-master-mind)
 
+## Juego Palabras Que Riman
+1. [Explicacion del juego](#explicacion-del-juego)
+2. [Clase Verificador de palabras que riman](#clase-verificador-de-palabras-que-riman)
+3. [Clase Palabras que riman simplificada](#clase-palabras-que-riman-simplificada)
+
 # Ejercicios Parte 1
 
 Estos primeros ejercicios son de una pagina con ejercicios en linea: https://pythondiario.com/2013/05/ejercicios-en-python-parte-1.html
@@ -352,4 +357,38 @@ El juego se ejecuta dentro de un bucle infinito, continuando hasta que el usuari
 
 Finalmente, se llama a la función `masterMind()` para comenzar el juego.
 
+# Juego Palabras Que Riman
+
+## Explicacion del juego
+
+El juego consiste en un programa que pide al usuario ingresar dos palabras y determina si riman o no. Si coinciden las tres últimas letras, se indica que riman. Si coinciden solo las dos últimas letras, se dice que riman un poco. En caso contrario, se indica que no riman.
+
+## Clase Verificador de palabras que riman
+
+Este programa verifica si dos palabras riman utilizando un enfoque basado en comparación de las últimas letras de las palabras.
+
+El funcionamiento del programa es el siguiente:
+
+1. Se le pide al usuario que ingrese dos palabras, que se almacenan en las variables palabra1 y palabra2. Estas palabras se convierten a minúsculas para evitar problemas de comparación.
+2. Cada palabra se convierte en una lista de caracteres utilizando list(palabra). Esto permite acceder a cada letra individualmente.
+3. Se calculan los índices de las últimas tres letras de cada palabra (comparador1, comparador2, comparador3 para la primera palabra; Scomparador1, Scomparador2, Scomparador3 para la segunda palabra), restando 3, 2 y 1, respectivamente, del tamaño de cada lista de palabras.
+4. Se comparan las letras de las dos palabras en las posiciones correspondientes a las últimas tres letras.
+    - Si todas coinciden, imprime "Ambas palabras riman".
+    - Si solo las dos últimas coinciden, imprime "Solo riman 2 letras de tus dos palabras".
+    - Si solo la última coincide, imprime "Solo rima 1 letra de tus dos palabras".
+    - Si ninguna de las tres coincide, imprime "Sus palabras no riman".
+
+## Clase Palabras que riman simplificada
+
+Este programa es una implementación simplificada del juego de palabras que riman que se hizo inicialmente. A continuación, explico cómo funciona:
+
+- Se define una función llamada rimas(), que no toma ningún argumento.
+- Dentro de la función:
+    - Se solicita al usuario que ingrese dos palabras utilizando la función input(). Estas palabras se almacenan en las variables palabra1 y palabra2, y se convierten a minúsculas usando el método lower() para evitar problemas de comparación debido a diferencias de mayúsculas y minúsculas.
+    - Se obtienen las últimas tres letras de cada palabra utilizando el slicing de Python. Esto se hace tomando los últimos tres elementos de la cadena usando la notación [-3:] y se almacenan en las variables ultimas_tres_letras_palabra1 y ultimas_tres_letras_palabra2.
+    - Se obtienen las últimas dos letras de cada palabra de manera similar y se almacenan en las variables ultimas_dos_letras_palabra1 y ultimas_dos_letras_palabra2.
+    - Se comparan las últimas tres letras de ambas palabras. Si coinciden, se imprime "Ambas palabras riman.".
+    - Si no coinciden las últimas tres letras, se compara si coinciden las últimas dos letras de ambas palabras. Si coinciden, se imprime "Las palabras riman un poco.".
+    - Si no coinciden ni las últimas tres ni las últimas dos letras de ambas palabras, se imprime "Las palabras no riman.".
+- Finalmente, se llama a la función rimas() para ejecutarla.
 

@@ -44,6 +44,11 @@ https://pythondiario.com/ejercicios-de-programacion-python
 2. [Clase Verificador de palabras que riman](#clase-verificador-de-palabras-que-riman)
 3. [Clase Palabras que riman simplificada](#clase-palabras-que-riman-simplificada)
 
+## Calculo de crecimiento de una inversion con tasa de interes
+1. [Explicacion del problema](#explicacion-del-problema)
+2. [Clase calculdora de crecimiento con tasa de interes](#clase-calculadora-de-crecimiento-con-tasa-de-interes)
+3. [Ejemplo de uso](#ejemplo-de-uso)
+
 # Ejercicios Parte 1
 
 Estos primeros ejercicios son de una pagina con ejercicios en linea: https://pythondiario.com/2013/05/ejercicios-en-python-parte-1.html
@@ -392,3 +397,33 @@ Este programa es una implementación simplificada del juego de palabras que rima
     - Si no coinciden ni las últimas tres ni las últimas dos letras de ambas palabras, se imprime "Las palabras no riman.".
 - Finalmente, se llama a la función rimas() para ejecutarla.
 
+
+# Calculo de crecimiento de una inversion con tasa de interes
+
+## Explicacion del problema
+
+Este programa solicita al usuario una cantidad de dinero, una tasa de interés y un número de años. Luego, calcula y muestra por pantalla cuánto se habrá convertido el capital inicial después de esos años, si cada año se aplica la tasa de interés introducida.
+
+## Clase calculdora de crecimiento con tasa de interes
+
+Aquí está cómo funciona paso a paso:
+
+1. El programa solicita al usuario tres entradas:
+   - La cantidad de capital inicial en dólares (C).
+   - La tasa de interés anual en porcentaje (x).
+   - El número de años (n) durante los cuales se aplicará la tasa de interés.
+
+2. Luego, utiliza la fórmula de interés compuesto para calcular el valor futuro de la inversión después del período especificado:
+   - T = C * (1 + x/100)^n
+     
+Donde:
+- C es el capital inicial.
+- x es la tasa de interés anual.
+- n es el número de años.
+- T es el valor futuro de la inversión.
+
+3. Finalmente, imprime el resultado en la pantalla, mostrando cuánto será el capital después del número de años especificado.
+
+## Ejemplo de uso
+Supongamos que tienes una cantidad de $10,000 dólares con una tasa de interés del 4.5% anual. Quieres saber cuánto será ese capital después de 20 años. El programa te dará la respuesta.
+Después de 20 años, su capital se habrá convertido en 24117.14 dólares.

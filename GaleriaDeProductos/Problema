@@ -1,0 +1,19 @@
+De la galería de productos, el usuario introducirá el código y el número de unidades del producto que desea comprar.
+El programa determinará el total a pagar, como una factura.
+Una variante a este ejercicio que lo haría un poco más complejo sería dar la posibilidad de seguir ingresando
+diferentes códigos de productos con sus respectivas cantidades, y cuando el usuario desee terminar el cálculo
+de la factura completa con todas sus compras. Te animas??
+
+Producto                                    Codigo
+Camisa ...................................  1
+Cinturon .................................  2
+Zapatos ..................................  3
+Pantalon .................................  4
+Calcetines ...............................  5
+Faldas ...................................  6
+Gorras ...................................  7
+Sueter ...................................  8
+Corbata ..................................  9
+Chaqueta .................................  10
+
+Camisa, Cinturon, Zapatos, Pantalon,  Calcetines,  Faldas, Gorras, Sueter, Corbata, Chaqueta

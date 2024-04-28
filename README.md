@@ -33,6 +33,9 @@ Subire ejercicios practicando el lenguaje python
 1. [Clase juego](#clase-juego)
 2. [Función contadorPuntos()](#funcion-contadorPuntos())
 
+## Juego Master Mind
+1. [Explicacion juego](#explicacion-juego)
+2. [Clase juego Master mind](#clase-juego-master-mind)
 
 # Ejercicios Parte 1
 
@@ -165,7 +168,7 @@ Estos son los ejercicios trabajados como segunda parte de estas practicas, el li
 
 ![image](https://github.com/AngheloZambrana/Practicas-Python/assets/101211793/fa077423-9cf6-4527-9866-79e80e00bc00)
 
-1. # Juego del Dragón
+# Juego del Dragón
 
 ## Enlaces a los artículos del juego:
 - [Parte 1](https://pythondiario.com/2013/06/juego-en-python-reino-del-dragon-parte1.html)
@@ -299,5 +302,52 @@ La función `contadorPuntos()` se encarga de manejar el flujo del juego y el con
 6. **Mostrar resultado y preguntar por jugar de nuevo:** Se muestra en pantalla la cantidad de puntos ganados en la última partida y el total acumulado hasta el momento. Luego se pregunta al jugador si desea jugar de nuevo.
 
 7. **Definición de la función `cheqcueva(cueva_elegida)`:** Esta función es la misma que se encuentra en el archivo importado `JuegoDelDragon.py`. Se encarga de simular el encuentro con el dragón y determinar si el jugador gana o pierde puntos en función de la cueva elegida.
+
+# Juego Master Mind
+
+## Explicacion juego
+
+Escribe un programa que te permita jugar a una versión simplificada del
+juego Master Mind. El juego consistirá en adivinar una cadena de números distintos. Al principio, el programa debe pedir la longitud de la adena (de 2 	a 9 cifras). Después el programa debe ir pidiendo que intentes adivinar la cadena de números. En cada intento, el programa informará de cuántos números han sido acertados (el programa considerará que se ha acertado un número si coincide el valor y la posición).
+- Dime la longitud de la cadena: 4
+- Intenta adivinar la cadena: 1234
+- Con 1234 has adivinado 1 valores. Intenta adivinar
+- la cadena: 1243
+- Con 1243 has adivinado 0 valores. Intenta adivinar
+- la cadena: 1432
+- Con 1432 has adivinado 2 valores. Intenta adivinar
+- la cadena: 2431
+- Con 2431 has adivinado 4 valores.
+- Felicidades
+
+## Clase juego Master mind
+
+## Definición de la función `masterMind()`
+
+La función `masterMind()` es el corazón del juego, donde ocurre toda la lógica del mismo. Comienza pidiendo al usuario la longitud de la cadena que debe adivinar. Luego genera una cadena aleatoria de números distintos dentro del rango especificado por el usuario.
+
+**Generación de la cadena aleatoria**
+
+- `longitud = int(input("Dime la longitud de la cadena: "))`: Pide al usuario que introduzca la longitud de la cadena que desea adivinar.
+- `lista = []`: Inicializa una lista vacía donde se almacenará la cadena aleatoria.
+- `for _ in range(longitud):`: Itera sobre el rango de la longitud especificada por el usuario.
+  - `lista.append(random.randint(0, 9))`: Agrega un número aleatorio entre 0 y 9 (inclusive) a la lista.
+
+**Bucle principal del juego**
+
+El juego se ejecuta dentro de un bucle infinito, continuando hasta que el usuario adivine la cadena completa.
+- `while True:`: Inicia un bucle infinito para continuar el juego.
+- `numeroUsuario = input("Intenta adivinar la cadena: ")`: Pide al usuario que introduzca su intento para adivinar la cadena.
+- `if len(numeroUsuario) != longitud:`: Comprueba si la longitud del intento del usuario coincide con la longitud de la cadena generada.
+- `intento = [int(digito) for digito in numeroUsuario]`: Convierte la cadena ingresada por el usuario en una lista de números enteros.
+- `aciertos = sum(1 for i in range(longitud) if intento[i] == lista[i])`: Calcula cuántos números ha adivinado el usuario comparando cada elemento del intento con la lista generada aleatoriamente.
+- `print(f"Con {numeroUsuario} has adivinado {aciertos} valores.")`: Muestra cuántos números ha adivinado el usuario en su intento.
+- `if aciertos == longitud:`: Comprueba si el usuario ha adivinado todos los números en la posición correcta.
+- `print("¡Felicidades!")`: Muestra un mensaje de felicitación si el usuario ha adivinado la cadena completa.
+- `break`: Sale del bucle infinito para finalizar el juego.
+
+**Llamada a la función `masterMind()`**
+
+Finalmente, se llama a la función `masterMind()` para comenzar el juego.
 
 

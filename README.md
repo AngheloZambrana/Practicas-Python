@@ -69,6 +69,15 @@ https://pythondiario.com/ejercicios-de-programacion-python
 - [Manejo de SQLite3 en nuestro codigo (2da clase)](#manejo-de-sqlite3-en-nuestro-código-2da-clase)
 - [Resultado de la clase "mi_base_de_datos.db"](#resultado-de-la-clase-mi_base_de_datosdb)
 
+## Ejercicios Parte 6
+
+1. [Contar digitos](#contar-digitos)
+2. [Suma de cuadrados espaciados](#suma-de-cuadrados-espaciados)
+3. [Impresión repetida](#impresion-repetida)
+4. [Tabla de multiplicar](#tabla-de-multiplicar)
+5. [Paridad de suma de digitos](#paridad-de-suma-de-digitos)
+6. [Digitos pares](#digitos-pares)
+7. [Separacion de claves](#separacion-de-claves)
 
 # Ejercicios Parte 1
 
@@ -300,8 +309,8 @@ Aquí llamamos a la función introduccion(), esta no es una función que python 
 
 NumCaverna = CambiarCueva()
 
-Esta linea también llama una función creada por nosotros. Recordar que la función CambiarCueva() permite elegir al jugador a que cueva quiere entrar. Lo que elija el jugador se va a guardar en la variable NumCaverna.
 
+Esta linea también llama una función creada por nosotros. Recordar que la función CambiarCueva() permite elegir al jugador a que cueva quiere entrar. Lo que elija el jugador se va a guardar en la variable NumCaverna.
 cheqcueva(NumCaverna)
 
 ![image](https://github.com/AngheloZambrana/Practicas-Python/assets/101211793/a048a0c8-171f-4e76-8693-328aaaa29309)
@@ -767,3 +776,50 @@ En esta parte del código, se crea una instancia de la clase ProgramaGestionEmpl
 ![image](https://github.com/AngheloZambrana/Practicas-Python/assets/101211793/4adb1320-9d7d-4063-9ca0-82693d0612ff)
 
 Como se puede ver esa es la estructura en la que se muestran las tablas, con los datos que ingresamos, esto se nos muestra gracias a la extension en nuestro IDE.
+
+# Ejercicios Parte 6
+
+Estos primeros ejercicios son de una pagina con ejercicios en linea: [Ejercicos-Parte 6](https://pythondiario.com/2015/11/ejercicios-en-python-parte-6.html)
+
+1. ## Contar digitos
+
+   - Descripción: Determinar la cantidad de dígitos presentes en un número dado, el cual puede variar en el rango de 1 a 100000.
+  
+   ![image](https://github.com/AngheloZambrana/Practicas-Python/assets/101211793/eb0db8b2-da66-476c-a61a-4051f32420da)
+
+2. ## Suma de cuadrados espaciados
+
+   - Descripción: Calcular la suma de los cuadrados de los números que están separados entre sí por una distancia de cuatro posiciones, para un número N que sea menor a 100.
+  
+     ![image](https://github.com/AngheloZambrana/Practicas-Python/assets/101211793/8136af11-3fdc-467a-b893-a5365ba2e3a9)
+
+3. ## Impresión repetida
+
+   - Descripción: Imprimir la serie de números del 1 al 10 repetida 10 veces.
+  
+     ![image](https://github.com/AngheloZambrana/Practicas-Python/assets/101211793/d1c4d580-6016-4d98-866c-206507879b4e)
+
+4. ## Tabla de multiplicar
+
+   - Descripción: Generar e imprimir la tabla de multiplicar de un número N dado.
+  
+     ![image](https://github.com/AngheloZambrana/Practicas-Python/assets/101211793/b8d006da-6b7e-4184-99a6-b11c04588770)
+
+5. ## Paridad de suma de digitos
+
+   - Descripción: Determinar si la suma de los dígitos de un número es par o impar.
+     
+  ![image](https://github.com/AngheloZambrana/Practicas-Python/assets/101211793/eee396ec-cc2f-4ba9-86da-1d1f5d3d2007)     
+     
+6. ## Digitos pares
+
+   - Descripción: Solicitar al usuario un número e imprimir solo los dígitos pares de dicho número.
+
+     ![image](https://github.com/AngheloZambrana/Practicas-Python/assets/101211793/adc1acdb-9bd2-4c24-8419-264ea95cc76e)
+     
+7. ## Separacion de claves
+
+   - Descripción: A partir de una clave maestra, separar los dígitos impares y pares para formar dos claves distintas. Por ejemplo, si la clave maestra es 12345, la primera clave sería 135 y la segunda clave sería 24.
+  
+     ![image](https://github.com/AngheloZambrana/Practicas-Python/assets/101211793/5b669b0f-569c-42bb-b4fa-c91895c49d0e)
+

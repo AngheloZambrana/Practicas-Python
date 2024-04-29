@@ -64,6 +64,12 @@ https://pythondiario.com/ejercicios-de-programacion-python
 3. [Clase categorias](#clase-categorias)
 4. [Clase calculadoraTarifa](#clase-calculadoraTarifa)
 
+### Manejo De Base De Datos con SQLite3
+- [Manejo de SQLite3 en nuestro codigo (1ra clase)](#manejo-de-sqlite3-en-nuestro-código-1ra-clase)
+- [Manejo de SQLite3 en nuestro codigo (2da clase)](#manejo-de-sqlite3-en-nuestro-código-2da-clase)
+- [Resultado de la clase "mi_base_de_datos.db"](#resultado-de-la-clase-mi_base_de_datosdb)
+
+
 # Ejercicios Parte 1
 
 Estos primeros ejercicios son de una pagina con ejercicios en linea: https://pythondiario.com/2013/05/ejercicios-en-python-parte-1.html
@@ -613,3 +619,151 @@ La clase `calculadoraTarifa` contiene una función `calcularDeuda()` que se enca
 
 Esta función encapsula la lógica principal de la calculadora de tarifas de alquiler de películas y maneja la interacción con el usuario de manera efectiva.
 
+
+## Manejo de SQLite3 en nuestro codigo (1ra clase)
+
+### Importación de la biblioteca sqlite3:
+
+```python
+import sqlite3
+```
+
+Esta línea importa la biblioteca sqlite3, que proporciona una interfaz para trabajar con bases de datos SQLite en Python.
+
+### Conexión a la base de datos:
+
+```python
+conn = sqlite3.connect('mi_base_de_datos.db')
+```
+
+Aquí se establece una conexión con la base de datos mi_base_de_datos.db utilizando la función connect() de la biblioteca sqlite3. Si la base de datos no existe, esta función la creará automáticamente.
+
+### Creación de un cursor:
+
+```python
+cursor = conn.cursor()
+```
+
+Se crea un cursor utilizando el método cursor() de la conexión. El cursor se utiliza para ejecutar comandos SQL en la base de datos.
+
+### Creación de la tabla de empleados:
+
+```python
+cursor.execute('''
+    CREATE TABLE IF NOT EXISTS empleados (
+        id INTEGER PRIMARY KEY,
+        nombre TEXT NOT NULL,
+        apellido TEXT NOT NULL,
+        sueldo_base REAL NOT NULL,
+        afap TEXT NOT NULL,
+        fecha_ingreso TEXT NOT NULL,
+        cantidad_hijos INTEGER NOT NULL
+    )
+''')
+```
+
+Aquí se ejecuta una instrucción SQL para crear una tabla llamada empleados en la base de datos. La tabla tiene varios campos como id, nombre, apellido, sueldo_base, etc. El modificador IF NOT EXISTS asegura que la tabla solo se cree si no existe ya en la base de datos.
+
+### Guardar cambios y cerrar conexión:
+
+```python
+conn.commit()
+conn.close()
+```
+
+Finalmente, se guardan los cambios en la base de datos utilizando el método commit() de la conexión. Luego, se cierra la conexión con la base de datos utilizando el método close().
+
+## Manejo de SQLite3 en nuestro codigo (2da clase)
+
+### Clase ProgramaGestionEmpleados:
+
+```python
+def __init__(self, nombre_bd):
+    self.nombre_bd = nombre_bd
+    self.crear_tabla_empleados()
+```
+
+Este método inicializa la clase ProgramaGestionEmpleados con el nombre de la base de datos y llama al método crear_tabla_empleados() para asegurarse de que la tabla de empleados esté creada en la base de datos.
+
+### Método crear_tabla_empleados:
+
+```python
+def ingresar_empleado(self):
+    try:
+        # Capturar datos del empleado
+        nombre = input("Ingrese el nombre del empleado: ")
+        apellido = input("Ingrese el apellido del empleado: ")
+        sueldo_base = float(input("Ingrese el sueldo base del empleado: "))
+        afap = input("Ingrese la AFP del empleado: ")
+        fecha_ingreso = input("Ingrese la fecha de ingreso del empleado (YYYY-MM-DD): ")
+        fecha_ingreso += ' 00:00:00'  # Agregar hora 00:00:00
+        fecha_ingreso = datetime.datetime.strptime(fecha_ingreso, "%Y-%m-%d %H:%M:%S")
+        cantidad_hijos = int(input("Ingrese la cantidad de hijos del empleado: "))
+
+        # Conexión a la base de datos
+        conn = sqlite3.connect(self.nombre_bd)
+        cursor = conn.cursor()
+
+        # Inserción de datos del empleado en la tabla
+        cursor.execute('''
+            INSERT INTO empleados (nombre, apellido, sueldo_base, afap, fecha_ingreso, cantidad_hijos)
+            VALUES (?, ?, ?, ?, ?, ?)
+        ''', (nombre, apellido, sueldo_base, afap, fecha_ingreso, cantidad_hijos))
+
+        # Guardar cambios y cerrar conexión
+        conn.commit()
+        conn.close()
+
+        print("Empleado ingresado correctamente.")
+
+    except Exception as e:
+        print("Error al ingresar empleado:", str(e))
+```
+
+Este método permite ingresar un nuevo empleado. Captura los datos del empleado desde la entrada estándar, los inserta en la tabla de empleados y guarda los cambios en la base de datos.
+
+### Método calcular_pagos:
+
+```python
+def calcular_pagos(self):
+    try:
+        # Conexión a la base de datos
+        conn = sqlite3.connect(self.nombre_bd)
+        cursor = conn.cursor()
+
+        # Obtener datos de los empleados
+        cursor.execute('''
+            SELECT nombre, apellido, sueldo_base, afap, fecha_ingreso, cantidad_hijos
+            FROM empleados
+        ''')
+        empleados = cursor.fetchall()
+
+        # Cálculos de pagos para cada empleado
+        for empleado in empleados:
+            # Realizar cálculos individuales por empleado
+
+        # Cálculos de promedios de pagos
+
+        # Guardar cambios y cerrar conexión
+
+    except Exception as e:
+        print("Error al calcular pagos:", str(e))
+```
+
+Este método ejecuta el programa principal, que muestra un menú de opciones al usuario y ejecuta la acción correspondiente según la opción seleccionada.
+
+### Inicialización del programa:
+
+```python
+if __name__ == "__main__":
+    programa = ProgramaGestionEmpleados('mi_base_de_datos.db')
+    programa.ejecutar_programa()
+```
+
+En esta parte del código, se crea una instancia de la clase ProgramaGestionEmpleados con el nombre de la base de datos y se ejecuta el programa principal.
+
+## Resultado de la clase "mi_base_de_datos.db"
+
+![image](https://github.com/AngheloZambrana/Practicas-Python/assets/101211793/4adb1320-9d7d-4063-9ca0-82693d0612ff)
+
+Como se puede ver esa es la estructura en la que se muestran las tablas, con los datos que ingresamos, esto se nos muestra gracias a la extension en nuestro IDE.

@@ -49,17 +49,20 @@ https://pythondiario.com/ejercicios-de-programacion-python
 2. [Clase calculdora de crecimiento con tasa de interes](#clase-calculadora-de-crecimiento-con-tasa-de-interes)
 3. [Ejemplo de uso](#ejemplo-de-uso)
 
-
 ## Calculo de crecimiento de una inversion con tasa de interes
 1. [Explicacion del problema Descuentos](#explicacion-del-problema-descuentos)
 2. [Clase descuento por sorteo](#clase-descuento-por-sorteo)
-
 
 ## Generacion De Factura por Galeria de Productos
 1. [Explicacion del problema Factura](#explicacion-del-problema-factura)
 2. [Clase productos](#clase-productos)
 3. [Clase factura](#clase-factura)
 
+## Calculadora de tarifas de alquiler de peliculas
+1. [Explicacion del problema tarifa](#explicacion-del-problema-tarifa)
+2. [Categorias y Tarifas](#categorias-y-tarifas)
+3. [Clase categorias](#clase-categorias)
+4. [Clase calculadoraTarifa](#clase-calculadoraTarifa)
 
 # Ejercicios Parte 1
 
@@ -473,8 +476,6 @@ La funcionalidad del programa se puede resumir de la siguiente manera:
 
 7. Finalmente, se llama a la función `descuentosColor()` para ejecutar el programa.
 
-
-
 # Generacion De Factura por Galeria de Productos
 
 ## Explicacion del problema Factura
@@ -546,3 +547,69 @@ Dentro del archivo se describe detalladamente el funcionamiento de la función `
     - Imprime la factura detallando los productos, las cantidades, los precios unitarios, los subtotales y el total a pagar.
 
 Esto asegura que la generación de la factura se realice de manera eficiente y precisa, proporcionando al usuario toda la información necesaria sobre sus compras.
+
+
+
+# Calculadora de tarifas de alquiler de peliculas
+
+## Explicacion del problema tarifa
+
+## Explicación del problema
+
+Este programa muestra primero el listado de categorías de películas y pide al usuario que introduzca el código de la categoría de la película. Posteriormente, solicita al usuario que introduzca el número de días de atraso en la devolución, y muestra al final el total a pagar.
+
+## Categorias y Tarifas
+
+| Categoría        | Precio  | Código | Recargo/Día de atraso |
+|------------------|---------|--------|------------------------|
+| FAVORITOS        | $2.50   | 1      | $0.50                  |
+| NUEVOS           | $3.00   | 2      | $0.75                  |
+| ESTRENOS         | $3.50   | 3      | $1.00                  |
+| SUPER ESTRENOS   | $4.00   | 4      | $1.50                  |
+
+## Clase categorias
+
+La clase `categorias` proporciona dos funciones importantes para el cálculo de tarifas de alquiler de películas:
+
+### Función categorias()
+
+Esta función devuelve una tupla con cuatro elementos:
+
+- `listaCategorias`: Una lista de nombres de categorías de películas.
+- `codigos`: Una lista de códigos de categorías de películas.
+- `precios`: Una lista de precios correspondientes a cada categoría de películas.
+- `deudas`: Una lista de recargos por día de atraso en la devolución de películas.
+
+Estos elementos están predefinidos en la función y se utilizan para categorizar las películas y determinar sus tarifas de alquiler.
+
+### Función asignarDeuda(categoria, deudas)
+
+Esta función toma dos argumentos:
+
+- `categoria`: El nombre de la categoría de la película.
+- `deudas`: La lista de recargos por día de atraso en la devolución.
+
+Se utiliza para asignar el recargo correspondiente por día de atraso en la devolución de una película según su categoría. Utiliza una serie de condicionales `if-elif-else` para determinar qué recargo corresponde a la categoría de la película.
+
+Si la categoría de la película no coincide con ninguna de las categorías predefinidas, imprime un mensaje indicando que la categoría no se encuentra en la lista.
+
+Estas funciones son esenciales para el funcionamiento de la calculadora de tarifas de alquiler de películas, ya que proporcionan información sobre las categorías de películas y ayudan a calcular los recargos por día de atraso en la devolución.
+
+## Clase calculadoraTarifa
+
+La clase `calculadoraTarifa` contiene una función `calcularDeuda()` que se encarga de ejecutar la lógica principal de la calculadora de tarifas de alquiler de películas.
+
+### Función `calcularDeuda()`
+
+- Utiliza un bucle `while True` para permitir que el programa se ejecute continuamente hasta que el usuario decida salir.
+- Obtiene la información de las categorías de películas, códigos, precios y recargos por día de atraso en la devolución llamando a la función `categorias()` desde el módulo `TarifasDeAlquilerPeliculas.categorias`.
+- Solicita al usuario que introduzca el código de la categoría de la película mediante la función `input()`. Si el código introducido está en la lista de códigos de categorías, continúa con el proceso.
+- Posteriormente, solicita al usuario que introduzca el número de días de retraso en la devolución mediante otra llamada a `input()`.
+- Utiliza el código de la categoría para obtener el nombre de la categoría y el precio correspondiente de la lista de categorías y precios.
+- Llama a la función `asignarDeuda()` desde el módulo `TarifasDeAlquilerPeliculas.categorias` para obtener el recargo por día de atraso en la devolución.
+- Calcula el total a pagar multiplicando el recargo por día de atraso por el número de días de retraso.
+- Muestra el total a pagar al usuario.
+- Le pregunta al usuario si desea salir. Si el usuario ingresa '1', el bucle se rompe y el programa termina.
+
+Esta función encapsula la lógica principal de la calculadora de tarifas de alquiler de películas y maneja la interacción con el usuario de manera efectiva.
+

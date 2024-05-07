@@ -28,7 +28,7 @@ def add_imprecision_bits(number, bits):
     return number
 
 
-def binary_mantisa(dec_number, bits):# 0.5 -> 1; 0.2 -> 5
+def binary_mantissa(dec_number, bits):  # 0.5 -> 1; 0.2 -> 5
     times = ""
     dec_number *= 2
     while dec_number < 1:
@@ -41,7 +41,6 @@ def binary_mantisa(dec_number, bits):# 0.5 -> 1; 0.2 -> 5
 
 
 def binary_to_float(binary, bits):
-
     sign_bits = int(binary[0])
     if bits < 33:
         exponent_bits = binary[1:9]
@@ -50,17 +49,15 @@ def binary_to_float(binary, bits):
         exponent_bits = binary[1:12]
         mantissa_bits = binary[12:]
 
-
     exponent = int(exponent_bits, 2)
     mantissa = 0.0
 
-    for i in range(1,len(mantissa_bits)):
-        if mantissa_bits[i] == "1":
-            mantissa += 2 ** (-(i))
+    for i in range(len(mantissa_bits)):
+        mantissa += (2 ** (-(i))) * int(mantissa_bits[i])
     if bits < 33:
-        result = (-1) ** sign_bits * (1 + mantissa) * (2 ** (exponent - 127))
+        result = (-1) ** sign_bits * mantissa * (2 ** (exponent - 127))
     else:
-        result = (-1) ** sign_bits * (1 + mantissa) * (2 ** (exponent - 1023))
+        result = (-1) ** sign_bits * mantissa * (2 ** (exponent - 1023))
     return result
 
 
@@ -72,21 +69,20 @@ def convert_to_ieee754(number, bits):
     if number >= 0:
         sign_bit = "0"
     if bits < 33:
-        mantisa = str(decimal_to_binary(int_part_number)) + binary_mantisa(dec_part_number, 23)
+        mantisa = str(decimal_to_binary(int_part_number)) + binary_mantissa(dec_part_number, 23)
         exponente_seda = decimal_to_binary(127 + len(decimal_to_binary(int_part_number)) - 1)
     else:
         exponente_seda = decimal_to_binary(1023 + len(decimal_to_binary(int_part_number)) - 1)
-        mantisa = str(decimal_to_binary(int_part_number)) + binary_mantisa(dec_part_number, 52)
+        mantisa = str(decimal_to_binary(int_part_number)) + binary_mantissa(dec_part_number, 52)
 
     return sign_bit + exponente_seda + mantisa
+
+
 def receive_to_convert():
     number = float(input())
     bits = int(input())
     print(convert_to_ieee754(number, bits))
     print(binary_to_float(convert_to_ieee754(number, bits), bits))
-
-
-
 
 
 receive_to_convert()
